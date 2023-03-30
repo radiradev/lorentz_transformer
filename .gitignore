@@ -1,0 +1,10 @@
+# Ignore .ipynb files
+*.ipynb
+
+# Ignore __pycache__ folders
+__pycache__/
+
+# Ignore specific folders
+checkpoints/
+wandb/
+

@@ -3,7 +3,7 @@ from pytorch_lightning.loggers import WandbLogger
 
 from net import Net
 from networks.pfn import ParticleFlowNetwork
-# from networks.lorentz.lorentz_net import LorentzClassifier 
+from networks.lorentz.lorentz_net import LorentzClassifier 
 from dataloader import WeaverDataModule
 import argparse
 
@@ -33,15 +33,15 @@ num_ins = 7
 num_outs = 1
 learning_rate = 1.0e-05
 
-# # TODO these can be in a separate file
-# class LorentzPL(Net):
-#     def __init__(self, learning_rate=learning_rate):
-#         super().__init__(learning_rate)
-#         self.model = LorentzClassifier(
-#             num_ins, 
-#             coords_dim=4, 
-#             num_classes=num_outs
-#         )
+# TODO these can be in a separate file
+class LorentzPL(Net):
+    def __init__(self, learning_rate=learning_rate):
+        super().__init__(learning_rate)
+        self.model = LorentzClassifier(
+            num_ins, 
+            coords_dim=4, 
+            num_classes=num_outs
+        )
 
 class PFNPL(Net):
     def __init__(self, learning_rate=learning_rate):

@@ -13,7 +13,6 @@ trainer:
   num_sanity_val_steps: 10
   benchmark: false
   deterministic: true
-  auto_lr_find: false
 
   # callbacks
   callbacks:
@@ -40,8 +39,8 @@ trainer:
     
 
 data:
-  train_file: debug_file.parquet
-  val_file: debug_file.parquet
+  train_file: train_file.parquet
+  val_file: val_file.parquet
   data_path: /eos/user/r/rradev/top_data/TopLandscape/
   data_config_file: top_landscape.yaml
   batch_size: 128

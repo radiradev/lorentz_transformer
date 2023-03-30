@@ -54,7 +54,7 @@ class Net(LightningModule):
         self.log('number_of_positives', number_of_positives.float())
         self.log_dict(log, prog_bar=True)
         return loss
-    def training_epoch_end(self, outs):
+    def on_train_epoch_end(self, outs):
         # log epoch metric
         self.log('train_acc_epoch', self.train_acc)
 
@@ -73,7 +73,7 @@ class Net(LightningModule):
 
         self.log_dict(log, prog_bar=True)
         return loss
-    def validation_epoch_end(self, outs):
+    def on_validation_epoch_end(self):
         self.log('val_acc_epoch', self.val_acc)
     def configure_optimizers(self):
         return torch.optim.AdamW(self.parameters(), lr=self.learning_rate)
